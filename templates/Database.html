@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This page will Display the results</title>
+    <style>
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flex-container > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.header {background: #00BFFF; padding: 20px; height:300px; padding: 30px;}
+
+.btn-group button {
+  position: center;
+  /*top:300px;*/
+  background-color: #4CAF50; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  /*height:100px;*/
+  width: 30%; /* Set a width if needed */
+  display:inline; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+<div class="flex-container">
+  <header class="header" style= "height:80%;">
+  	<h1 style="color:White;">Twitter Sentiment Analysis</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/738px-Twitter_bird_logo_2012.svg.png" alt="Twitter Logo" style= "width:20%; height:20%;">
+  </header>
+
+<div style="padding: 20px"></div>
+<div class="btn-group">
+  <a href="/">
+    <button>Back to Search</button>
+  </a>
+  <a href="/Compare">
+      <button>Compare</button>
+  </a>
+   <a href="/Database">
+  <button>View Database</button>
+   </a>
+</div>
+
+<table>
+   <tr>
+      <td style="font-size: 45px; padding:30px" >Keyword</th>
+       <td style="font-size: 45px; padding:30px">Sentiment</th>
+      <td style="font-size: 45px; padding:30px" align="left">Tweet</th>
+   </tr>
+{% for item in items %}
+<TR>
+   <TD style="font-size: 25px; padding-left: 20px">{{item[1]}}</TD>
+   <TD style="font-size: 25px">{{item[2]}}</TD>
+    <TD style="font-size: 25px" align="left">{{item[3]}}</TD>
+</TR>
+{% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flex-container > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.main {
+  text-align: left;
+  background: lightgrey;
+  position: relative;
+  top:100px;
+  padding: 40px;
+}
+
+.container{
+  text-align: center;
+  position: relative;
+  padding: 10px
+}
+
+.header {background: #00BFFF; padding: 20px; height:300px; padding: 30px;}
+.footer {background: lightgreen; position: relative;}
+
+
+@media all and (min-width: 768px) {
+  .aside { flex: 1 auto; }
+  .main    { flex: 3 0px; }
+  .aside { order: 1; }
+  .main    { order: 2; }
+  .footer  { order: 4; }
+}
+</style>
+</head>
+<body>
+
+<div class="flex-container">
+  <header class="header" style= "height:80%;">
+  	<h1 style="color:White;">Twitter Sentiment Analysis</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/738px-Twitter_bird_logo_2012.svg.png" alt="Twitter Logo" style= "width:20%; height:20%;">
+  </header>
+
+
+  <article class="main">
+    <!--<p>This application will provide you  </p>-->
+    <div class="container">
+  <header>
+  </header>
+  <h1>Please Enter your keyword</h1>
+
+
+  <form action="" method="post">
+    <input type="text" placeholder="Keyword" name="keyword" value="{{ request.form.keyword }}">
+    <input type="number" placeholder="Number" name="number" value="{{ request.form.number }}">
+    <input class="btn btn-default" type="submit" value="Enter">
+  </form>
+
+  {% if error %}
+    <p class="error"><strong>Error:</strong> {{ error }}
+  {% endif %}
+</div>
+  </article>
+  <!--<footer class="footer">Footer</footer>-->
+</div>
+
+
+
+
+
+</body>
+</html>

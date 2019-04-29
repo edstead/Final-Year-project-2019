@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flex-container > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.main {
+  /*text-align: left;*/
+  background: lightgrey;
+  position: relative;
+  top:100px;
+  padding: 40px;
+}
+
+.container{
+  text-align: center;
+  position: relative;
+  padding: 10px
+}
+
+.header {background: #00BFFF; padding: 20px; height:300px; padding: 30px;}
+.footer {background: lightgreen; position: relative;}
+
+.btn-group button {
+  position: center;
+  /*top:300px;*/
+  background-color: #4CAF50; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  /*height:100px;*/
+  width: 30%; /* Set a width if needed */
+  display:inline; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+@media all and (min-width: 768px) {
+.aside { flex: 1 auto; }
+.main    { flex: 3 0px; }
+.aside { order: 1; }
+.main    { order: 2; }
+.footer  { order: 4; }
+}
+</style>
+    <meta charset="UTF-8">
+    <title>The Graph</title>
+</head>
+<body>
+
+<div class="flex-container">
+  <header class="header" style= "height:80%;">
+  	<h1 style="color:White;">Twitter Sentiment Analysis</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/738px-Twitter_bird_logo_2012.svg.png" alt="Twitter Logo" style= "width:20%; height:20%;">
+  </header>
+<div style="padding: 20px"></div>
+<div class="btn-group">
+  <a href="/">
+    <button>Back to Search</button>
+  </a>
+  <a href="/Compare">
+      <button>Compare</button>
+  </a>
+   <a href="/Database">
+  <button>View Database</button>
+   </a>
+</div>
+
+  <article class="main">
+
+<embed type="image/svg+xml" img align="middle" src={{graph_data|safe}} style='max-width:1000px; vertical-align: middle;'/>
+
+</body>
+</html>
